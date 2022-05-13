@@ -71,7 +71,7 @@ def train():
         best_acc = 0
         best_epoch = 0
         for epoch in range(epochs):
-            char_pred,char_true,train_loss,train_acc,train_time_cost = train_model(epoch,model,train_dataloader,criterion,optimizer,scheduler)
+            char_pred,char_true,train_loss,train_acc,train_time_cost = train_model(model,train_dataloader,criterion,optimizer,scheduler)
             valid_acc,valid_time_cost,valid_loss,char_df_valid = valid_model(model,valid_dataloader,criterion,flag=False)
             
             char_df=pd.DataFrame([char_true],index=['train_true']).T.reset_index().merge(pd.DataFrame([char_pred],index=['train_pred']).T.reset_index(),on='index',how='left').fillna(0)

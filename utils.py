@@ -114,7 +114,7 @@ def valid_model(model,valid_dataloader,criterion,flag=True):
         return correct / total, int(time.time()-s), total_loss/len(valid_dataloader), char_df
     
 def train_model(model,train_dataloader,criterion,optimizer,scheduler,mixup=False):
-	device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
     model.train()
     total_loss = 0
     total=0
@@ -159,7 +159,7 @@ def train_model(model,train_dataloader,criterion,optimizer,scheduler,mixup=False
     return char_pred,char_true,total_loss / len(train_dataloader),correct/total,int(time.time()-s)
 
 def train_model_4fc(model,train_dataloader,criterion,optimizer,scheduler=None):
-	device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    device = 'cuda' if torch.cuda.is_available() else 'cpu'
     model.train()
     total_loss = 0
     total=0
